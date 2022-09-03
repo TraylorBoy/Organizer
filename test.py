@@ -6,11 +6,11 @@ def setup_env():
   """Creates a directory with several files"""
 
   test_path = os.getcwd() + '/testEnv'
-  print(test_path)
 
   try:
     # Create test dir
     os.mkdir(test_path)
+    print('Created test environment at {}'.format(test_path))
   except FileExistsError:
     # Dir exists already
     pass
@@ -19,7 +19,7 @@ def setup_env():
   os.chdir(test_path)
 
   # Create files to be sorted
-  contents = ['C.txt', 'A.txt', 'B.txt']
+  contents = ['C.txt', 'A.txt', 'B.txt', '50.txt', '12.txt', 'aPles.txt', 'SPAM.txt']
 
   # Add files to created dir
   for item in contents:
@@ -29,10 +29,6 @@ def setup_env():
 
   return test_path
 
-def check_contents(path):
-  print(core.get_contents(path))
-
 if __name__ == '__main__':
   env_path = setup_env()
-  check_contents(env_path)
   core.alphabetize(env_path)
